@@ -1,0 +1,30 @@
+
+
+// Ejercicio 1: Filtrar productos por precio y categoría
+const stock = [
+  { id: 1, nombre: "Ratón óptico", precio: 25, categoria: "perifericos" },
+  { id: 2, nombre: "Memoria RAM 16GB", precio: 85, categoria: "componentes" },
+  { id: 3, nombre: "Monitor 4K", precio: 320, categoria: "perifericos" },
+  { id: 4, nombre: "Disco SSD 1TB", precio: 65, categoria: "componentes" },
+];
+
+// Tu código aquí abajo:
+
+const stockMayor50 = stock.filter(producto => producto.precio >50 && producto.categoria === "componentes");
+console.log(stockMayor50);
+
+// Ejercicio 2: Actualización de la cantidad de Cables hdmi
+
+const carritoOriginal = [
+  { id: 101, articulo: "Teclado", precio: 45, cantidad: 1 },
+  { id: 102, articulo: "Cable HDMI", precio: 12, cantidad: 1 },
+];
+
+// Tu código aquí abajo:
+const carritoActualizado = carritoOriginal.map(item => {
+    if (item.id === 102) {
+        return { ...item, cantidad: 3 };
+    }
+    return item;
+});
+console.log(carritoActualizado);
