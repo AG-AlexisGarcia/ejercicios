@@ -28,3 +28,20 @@ const carritoActualizado = carritoOriginal.map(item => {
     return item;
 });
 console.log(carritoActualizado);
+console.log(carritoOriginal); // Verificar que el carrito original no se ha modificado
+
+// Ejercicio 3: Consumo de API Asíncrona (Nivel Avanzado)
+// Tu código aquí abajo:
+async function obtenerPostPorUsuario(userId) {
+    try {
+        const respuesta =await fetch('https://jsonplaceholder.typicode.com/posts');
+        if (!respuesta.ok) {
+            throw new Error(`Error en la petición: ${respuesta.status}`);
+        }
+
+        const  posts = await respuesta.json();
+        
+    }
+
+// Ejecución de prueba:
+obtenerPostPorUsuario(2);
