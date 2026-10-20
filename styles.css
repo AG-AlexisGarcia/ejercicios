@@ -1,0 +1,27 @@
+/* Estilos para el contenedor principal */
+#contenedor-usuarios {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+/* Estilos obligatorios para la clase .card-usuario */
+.card-usuario {
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    padding: 16px;
+    background-color: #f9f9f9;
+    width: 200px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-usuario h3 {
+    margin-top: 0;
+    color: #333333;
+}
+
+.card-usuario p {
+    margin-bottom: 0;
+    color: #666666;
+}
