@@ -60,5 +60,37 @@ async function obtenerPostPorUsuario(userId) {
 obtenerPostPorUsuario(2);
 
 // Ejercicio 4: Generación Dinámica de Nodos (DOM Nativo)
+const usuariosLocales = [
+    { id: 1, nombre: 'Ana Gómez', email: 'ana@ies.es' },
+    { id: 2, nombre: 'Luis Martínez', email: 'luis@ies.es' },
+    { id: 3, nombre: 'María García', email: 'maria@ies.es' },
+    { id: 4, nombre: 'Pedro Sánchez', email: 'pedro@ies.es' },
+    { id: 5, nombre: 'Laura Fernández', email: 'laura@ies.es' }
+];
 
+// 2. Localizamos el contenedor HTML por su ID
+const contenedor = document.getElementById('contenedor-usuarios');
+
+// 3. Recorremos el array de usuarios
+usuariosLocales.forEach(usuario => {
+
+    // A) Creamos el div de la tarjeta y le asignamos la clase CSS
+    const tarjeta = document.createElement('div');
+    tarjeta.classList.add('card-usuario'); // Exigido en el enunciado
+
+    // B) Creamos el encabezado h3 y le asignamos el nombre del usuario
+    const titulo = document.createElement('h3');
+    titulo.textContent = usuario.nombre;
+
+    // C) Creamos el párrafo p y le asignamos el email
+    const correo = document.createElement('p');
+    correo.textContent = usuario.email;
+
+    // D) Ensamblamos la tarjeta: metemos el h3 y el p dentro del div tarjeta
+    tarjeta.appendChild(titulo);
+    tarjeta.appendChild(correo);
+
+    // E) Insertamos la tarjeta ya montada dentro del contenedor del HTML
+    contenedor.appendChild(tarjeta);
+});
 
