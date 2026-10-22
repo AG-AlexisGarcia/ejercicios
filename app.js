@@ -92,5 +92,34 @@ usuariosLocales.forEach(usuario => {
 
     // E) Insertamos la tarjeta ya montada dentro del contenedor del HTML
     contenedor.appendChild(tarjeta);
+
+    async function buscarPostPorId(postID) {
+        // 1. Localizamos el contenedor HTML por su ID
+        const contenedor = document.getElementById('resultado-busqueda');
+
+        try {
+            // 2. Hacemos la petición a la API con el ID dinámico
+            const respuesta = await fetch(`https://jsonplaceholder.typicode.com/posts/\${postID}`);
+            // 3. Comprovamos que hay respuesta
+            if (!respuesta.ok) {
+                throw new Error(`Error en la petición: ${respuesta.status}`);
+            }
+            // 4. Convertimos la respuesta a json
+            const posts = await respuesta.json();
+            // 5. Inyectamos el título en mayúsculas y el cuerpo usando plantillas literales
+            contenedor.innerHTML = `
+                <h3>${post.title.toUpperCase()}</h3>
+                <p>${post.body}</p>
+            `;
+        } catch (error) {
+            // 6. Si la red falla o el post no existe, mostramos el mensaje de error solicitado
+            contenedor.innerHTML = `<p>No se ha podido recuperar el post solicitado</p>`;
+        }
+    }
+
+    // Prueba 1: post existente
+    buscarPostPorId(1);
+    // Prueba 2: post inexistente
+    buscarPostPorId(200);
 });
 
